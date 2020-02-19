@@ -41,28 +41,28 @@ function createMap(earthQuakeData) {
     maxZoom: 18,id: "mapbox.light", accessToken: API_KEY
   }).addTo(myMap);
 
-// The assignColor function is used to assign the color for the circles based on the magnitude
-function assignColor(mag) {
-  if (mag <= 1){
-    color = "greenyellow";
+  // The assignColor function is used to assign the color for the circles based on the magnitude
+  function assignColor(mag) {
+    if (mag <= 1){
+      color = "greenyellow";
+    }
+    else if (mag <= 2){
+      color = "#FCF3CF";
+    }
+    else if (mag <= 3){
+      color = "#FED976";
+    }
+    else if (mag <= 4){
+      color = "#FEB24C";
+    }
+    else if (mag <= 5){
+      color = "#FD8D3C";
+    }
+    else {
+      color = "#FC4E2A";
+    }
+    return color;
   }
-  else if (mag <= 2){
-    color = "#FCF3CF";
-  }
-  else if (mag <= 3){
-    color = "#FED976";
-  }
-  else if (mag <= 4){
-    color = "#FEB24C";
-  }
-  else if (mag <= 5){
-    color = "#FD8D3C";
-  }
-  else {
-    color = "#FC4E2A";
-  }
-  return color;
-}
 
   // iterate through the features of the earthquake data and create cirles
   // bind a popup for each and add them to map
@@ -108,9 +108,4 @@ function assignColor(mag) {
 
   legend.addTo(myMap);
   
-
-
-
-
-
 }
